@@ -98,3 +98,27 @@ hr {
     text-align: center;
     color: #333;
 }
+
+
+
+.flex {
+	display: flex;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+/* Flex Item */
+.item {
+	margin: 20px;
+	text-align: center;
+	font-size: 1.5em;
+    max-width: 110px;
+}
+
+.container-flex {
+	max-width: 800px;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+}
