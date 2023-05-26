@@ -4,11 +4,8 @@ const imagem = document.getElementById('imgcachorro');
 const nome = document.getElementById("name");
 const contextoLista = document.getElementById("contexto-lista");
 
-
-
 const itens = JSON.parse(localStorage.getItem("itens")) || []
 
-//inserir dados
 
 exibirItensNaTela();
 
@@ -49,16 +46,32 @@ function adicionaItemNaTela(item){
     contextoLista.innerHTML += criarItemLista(item);
 }
 
-
 function criarItemLista(item){
 
+    
     return `  <div class="item" >
                     <img height="100px" max-width="100px" id="imgcachorro" src="${item.imagem}">
                     ${item.nome} 
-                    <a data-id="${item.id}" >X</a>
-                </div>`;
-
+   
+                </div>`             
 }
+
+function botaoDeleta(){
+    const elementoBotao = document.createElement("button")
+    elementoBotao.innerText = "X"
+    elementoBotao.addEventListener("click", function(){
+        deletaElemento(this.parentNode);
+    })
+    return elementoBotao;
+}
+
+function deletaElemento(tag){
+    tag.remove()
+    itens.splice(itens.findindex(elemento => elemento.id === id))
+    localStorage.setItem("itens", JSON.stringify(itens))
+}
+
+
 
 formulario.addEventListener('submit', function(e) {
 
