@@ -10,6 +10,7 @@ const itens = JSON.parse(localStorage.getItem("itens")) || []
 exibirItensNaTela();
 
 botaoAdicionar.addEventListener("click", (e) => {
+    // bloqueia o reflesh da página
     e.preventDefault();
     adicionarCachorroNaLista();
 })
@@ -29,7 +30,7 @@ function adicionarCachorroNaLista(){
         imagem: enderecoImagem
     });
 
-    localStorage.setItem("itens", JSON.stringify(itens));
+    localStorage.setItem("string", JSON.stringify(itens));
 
     exibirItensNaTela();
 }
@@ -52,27 +53,13 @@ function criarItemLista(item){
     return `  <div class="item" >
                     <img height="100px" max-width="100px" id="imgcachorro" src="${item.imagem}">
                     ${item.nome} 
-   
+                   <button class="remove">
+                   <i class="fa-solid fa-xmark"></i> 
+                   </button>
+                   
                 </div>`             
 }
-
-function botaoDeleta(){
-    const elementoBotao = document.createElement("button")
-    elementoBotao.innerText = "X"
-    elementoBotao.addEventListener("click", function(){
-        deletaElemento(this.parentNode);
-    })
-    return elementoBotao;
-}
-
-function deletaElemento(tag){
-    tag.remove()
-    itens.splice(itens.findindex(elemento => elemento.id === id))
-    localStorage.setItem("itens", JSON.stringify(itens))
-}
-
-
-
+    
 formulario.addEventListener('submit', function(e) {
 
     // bloqueia o reflesh da página
@@ -84,12 +71,9 @@ formulario.addEventListener('submit', function(e) {
      // ID content
     let respota = document.getElementById('content');
 
-    //ID imgcachorro
-    
-
     // Resposta em HTML
     let html = ''
-
+    //pesquisa e retorna o valor
     fetch(urlform)
         .then(respota => respota.json())
         .then(function(data){
@@ -101,5 +85,7 @@ formulario.addEventListener('submit', function(e) {
         .catch(function(err){
             console.log(err)
         })
+
+    
     });
     
