@@ -49,7 +49,7 @@ function adicionaItemNaTela(item){
         item.onclick = excluiItemNaTela
 
     })
-<<<<<<< HEAD
+
 }
 
 function excluiItemNaTela(e){
@@ -60,8 +60,6 @@ function excluiItemNaTela(e){
    itens.splice(index,1); 
    localStorage.setItem("itens", JSON.stringify(itens));
    location.reload();
-=======
->>>>>>> eabb065da891f1e24dc792c50e3c958eb7b027a4
 }
 
 function excluiItemNaTela(e){
@@ -74,13 +72,6 @@ function excluiItemNaTela(e){
    location.reload();
 }
     
-
-
-
-
-
-
-
 function criarItemLista(item){
 
     
@@ -88,11 +79,7 @@ function criarItemLista(item){
                     <img height="100vh" max-width="100vw" id="imgcachorro" src="${item.imagem}">
                     ${item.nome} 
                    <button class="remove btn-remove" data-id= "${item.id}">
-<<<<<<< HEAD
-                        X
-=======
                       X 
->>>>>>> eabb065da891f1e24dc792c50e3c958eb7b027a4
                    </button>
                    
                 </div>`             
