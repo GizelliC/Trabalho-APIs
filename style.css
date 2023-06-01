@@ -42,6 +42,7 @@ hr {
     background: #ffffff;
     max-width: 600px;
     min-height: 500px;
+    text-align: center;
 }
 .imagem, #imgCachorro {
     text-align:center;
@@ -92,11 +93,11 @@ hr {
     background: #ffcc01;
     border: 1px solid #c8a102;
     border-radius: 5px;
-    font-weight: 600;
+    font-weight: 900;
     font-size: 1rem;
     text-align: center;
     color: #333;
-    margin: 10px;
+    margin: 5px;
 }
 
  input[type=submit] {
@@ -109,8 +110,9 @@ hr {
     border: 1px solid #130909;
     padding: 5px;
     border-radius: 5px;
-    width: 100%;   
-
+    width: 20%;
+    margin: 5px; 
+   
 }
 
 
@@ -125,7 +127,7 @@ hr {
 
 /* Flex Item */
 .item {
-	margin: 30px;
+	margin: 25px;
 	text-align: center;
 	font-size: 1rem;
     max-width: 110px;
@@ -137,11 +139,5 @@ hr {
 	border: 1px solid #ccc;
    
 }
-button i {
-    color: #9901ff
-  
-}
-
-    
 
 

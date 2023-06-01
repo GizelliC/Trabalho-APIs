@@ -30,7 +30,7 @@ function adicionarCachorroNaLista(){
         imagem: enderecoImagem
     });
 
-    localStorage.setItem("string", JSON.stringify(itens));
+    localStorage.setItem("itens", JSON.stringify(itens));
 
     exibirItensNaTela();
 }
@@ -45,16 +45,30 @@ function exibirItensNaTela(){
 
 function adicionaItemNaTela(item){
     contextoLista.innerHTML += criarItemLista(item);
+    document.querySelectorAll(".btn-remove").forEach( item =>{
+        item.onclick = excluiItemNaTela
+
+    })
+}
+
+function excluiItemNaTela(e){
+   e.preventDefault();
+   let id = e.target.getAttribute("data-id");
+   //console.log(id);
+   let index = itens.findIndex(remover => (remover.id==id));
+   itens.splice(index,1); 
+   localStorage.setItem("itens", JSON.stringify(itens));
+   location.reload();
 }
 
 function criarItemLista(item){
 
     
     return `  <div class="item" >
-                    <img height="100px" max-width="100px" id="imgcachorro" src="${item.imagem}">
+                    <img height="100vh" max-width="100vw" id="imgcachorro" src="${item.imagem}">
                     ${item.nome} 
-                   <button class="remove">
-                   <i class="fa-solid fa-xmark"></i> 
+                   <button class="remove btn-remove" data-id= "${item.id}">
+                        X
                    </button>
                    
                 </div>`             
@@ -65,7 +79,7 @@ formulario.addEventListener('submit', function(e) {
     // bloqueia o reflesh da página
     e.preventDefault();
    
-    // Url da pesquisa
+    // Url da pesquisa API
     let urlform = "https://dog.ceo/api/breed/"+nome.value+"/images";
 
      // ID content
